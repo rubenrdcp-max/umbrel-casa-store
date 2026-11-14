@@ -2,7 +2,9 @@ manifestVersion: 1
 id: casa-armazenamento
 category: files
 name: Armazenamento Total
-version: "1.0.0"
+version: "1.0.1"
+releaseNotes: >-
+  Corrige o widget que aparecia vazio na pagina inicial.
 tagline: Soma o disco interno com todas as pens e discos USB ligados
 description: >-
   Mostra na pagina inicial do Umbrel um widget com o espaco total, usado e livre,

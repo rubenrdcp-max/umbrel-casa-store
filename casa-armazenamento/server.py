@@ -51,6 +51,7 @@ def widget(ds):
     title = "Armazenamento total" + (f" · {extra} USB" if extra > 0 else "")
     return {
         "type": "text-with-progress",
+        "refresh": "30s",  # o umbreld exige este campo na resposta, nao so no manifesto
         "link": "",
         "title": title,
         "text": fmt(used),
@@ -99,7 +100,7 @@ def selftest():
     assert fmt(2_485_000_000_000) == "2,5 TB"
     ds = [{"name": "a", "total": 100, "used": 25, "free": 75}, {"name": "b", "total": 100, "used": 25, "free": 75}]
     w = widget(ds)
-    assert w["progress"] == 0.25 and w["title"].endswith("1 USB"), w
+    assert w["progress"] == 0.25 and w["title"].endswith("1 USB") and w["refresh"], w
     assert widget([])["progress"] == 0
 
 
