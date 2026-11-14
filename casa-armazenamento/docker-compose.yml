@@ -1,0 +1,22 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: casa-armazenamento_server_1
+      APP_PORT: 8000
+
+  server:
+    image: python:3.12-alpine
+    user: "1000:1000"
+    restart: on-failure
+    command: ["python", "/app/server.py"]
+    volumes:
+      - ${APP_DATA_DIR}/server.py:/app/server.py:ro
+      # rslave: discos USB ligados depois do arranque tambem aparecem aqui
+      - type: bind
+        source: ${UMBREL_ROOT}
+        target: /umbrel
+        read_only: true
+        bind:
+          propagation: rslave

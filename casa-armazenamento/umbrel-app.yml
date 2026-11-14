@@ -1,0 +1,35 @@
+manifestVersion: 1
+id: casa-armazenamento
+category: files
+name: Armazenamento Total
+version: "1.0.0"
+tagline: Soma o disco interno com todas as pens e discos USB ligados
+description: >-
+  Mostra na pagina inicial do Umbrel um widget com o espaco total, usado e livre,
+  somando o disco interno com todos os discos USB e de rede ligados. Atualiza
+  sozinho quando ligas ou tiras uma pen. So le os tamanhos dos discos, nunca os ficheiros.
+developer: casa
+website: ""
+dependencies: []
+repo: ""
+support: ""
+port: 8765
+gallery: []
+path: ""
+defaultUsername: ""
+defaultPassword: ""
+widgets:
+  - id: "armazenamento-total"
+    type: "text-with-progress"
+    refresh: "30s"
+    endpoint: "server:8000/api/widget"
+    link: ""
+    example:
+      type: "text-with-progress"
+      link: ""
+      title: "Armazenamento total · 1 USB"
+      text: "232 GB"
+      progressLabel: "2,3 TB livres de 2,5 TB"
+      progress: 0.093
+submitter: casa
+submission: ""
